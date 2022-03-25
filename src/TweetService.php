@@ -38,7 +38,7 @@ class TweetService {
     public function prepare_tweets($tweets) {
         $main = $tweets['data'];
         foreach ($main as $key => $value) {
-            $main[$key]['link'] = 'https://twitter.com/spiceworksmm/status/'.$value['id'];
+            $main[$key]['link'] = 'https://twitter.com/'.$tweets['includes']['users'][0]['username'].'/status'.'/'.$value['id'];
             $main[$key]['user'] = $tweets['includes']['users'][0];
             $main[$key]['images'] = !empty($value['attachments']) ? $this->get_images($value['attachments']['media_keys'], $tweets['includes']['media']): null;
         }
