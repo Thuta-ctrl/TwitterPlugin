@@ -1,12 +1,12 @@
-#Twitter Api Package
+# Twitter Api Package
 
-#installation
+## Installation
 
 ```ruby
 composer require thutayarmoe/tweets
 ```
 
-#How to use
+## How to use
 
 ```
 <?php
