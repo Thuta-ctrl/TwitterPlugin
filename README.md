@@ -11,7 +11,7 @@ composer require thutayarmoe/tweets
 ```
 <?php
 
-use Thutayarmoe\Tweets\TweetService;
+use ThutaYarMoe\Tweets\TweetService;
 
 Route::get('/', function (TweetService $service) {
     $users = [
