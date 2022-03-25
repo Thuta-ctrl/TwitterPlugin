@@ -1,5 +1,11 @@
 #Twitter Api Package
 
+#installation
+
+```ruby
+composer require thutayarmoe/tweets
+```
+
 #How to use
 
 ```
