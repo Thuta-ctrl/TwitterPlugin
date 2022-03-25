@@ -7,20 +7,20 @@ class TweetService {
     public function get_tweets($users) {
         $tweets = [];
         foreach ($users as $key => $value) {
-            try {
-                $response = Http::withHeaders([
-                    'Content-type' => 'application/json',
-                    'Authorization' => 'Bearer ' . $value['token']
-                ])->get('https://api.twitter.com/2/users/'.$value['id'].'/tweets', [
-                    'tweet.fields' => 'created_at,author_id,lang,source,public_metrics,context_annotations,entities',
-                    'max_results' => 5,
-                    'user.fields' => 'created_at,name,profile_image_url',
-                    'expansions' => 'author_id,attachments.media_keys',
-                    'media.fields' => 'preview_image_url,type,url'
-                ]);
+            $response = Http::withHeaders([
+                'Content-type' => 'application/json',
+                'Authorization' => 'Bearer ' . $value['token']
+            ])->get('https://api.twitter.com/2/users/'.$value['id'].'/tweets', [
+                'tweet.fields' => 'created_at,author_id,lang,source,public_metrics,context_annotations,entities',
+                'max_results' => 5,
+                'user.fields' => 'created_at,name,profile_image_url',
+                'expansions' => 'author_id,attachments.media_keys',
+                'media.fields' => 'preview_image_url,type,url'
+            ]);
+            if (empty($response->json()['errors'])) {
                 array_push($tweets, $response->json());
-            } catch (\Exception $e) {
-                throw $e;
+            } else {
+                return response()->json(['error' => $response->json()['errors']], $response->status());
             }
         }
         $collection = [];
