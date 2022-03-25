@@ -1,3 +1,19 @@
 #Twitter Api Package
 
-Reterive tweets from twitter api
+Retrieve tweets from twitter api
+
+<?php
+
+use Thutayarmoe\Tweets\TweetService;
+
+Route::get('/', function (TweetService $service) {
+    $users = [
+        [
+            'id'=> 'id',
+            'token'=> 'token'
+        ],
+    ];
+
+    $tweets = $service->get_tweets($users);
+    return $tweets;
+});
