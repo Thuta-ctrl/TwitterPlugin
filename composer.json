@@ -1,0 +1,22 @@
+{
+    "name": "thutayarmoe/tweets",
+    "description": "Get Tweets from Twitter Api",
+    "type": "library",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "require": {
+        "guzzlehttp/guzzle": "^7.0.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "ThutaYarMoe\\Tweets\\":"src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ThutaYarMoe\\Tweets\\TweetServiceProvider"
+            ]
+        }
+    }
+}
