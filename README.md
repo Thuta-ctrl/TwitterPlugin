@@ -1,7 +1,8 @@
 #Twitter Api Package
 
-Retrieve tweets from twitter api
+#How to use
 
+```
 <?php
 
 use Thutayarmoe\Tweets\TweetService;
@@ -17,3 +18,4 @@ Route::get('/', function (TweetService $service) {
     $tweets = $service->get_tweets($users);
     return $tweets;
 });
+```
